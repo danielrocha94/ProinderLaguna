@@ -1,0 +1,27 @@
+.map__body {
+  margin: 0px;
+  background-color: #454f4f;
+}
+
+nav.navbar {
+    margin: 0px;
+}
+
+.map__content {
+  height: 100vh;
+}
+
+.info_window {
+    width: 50%;
+    background-color: forestgreen;    
+}
+
+.sms_collector__info {
+    width: 50%;
+    background-color: forestgreen;
+}
+
+.call_collector__info {
+    width: 50%;
+    background-color: tomato;    
+}
