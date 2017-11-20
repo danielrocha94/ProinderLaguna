@@ -6,13 +6,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span> 
       </button>
-      <a class="navbar-brand" href="#">Pro-Inder</a>
+      <a class="navbar-brand" href="/RecycleMapApp/index.jsp">Pro-Inder</a>
     </div>
     <div class="collapse navbar-collapse" id="mapNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="#">Inicio</a></li>
+        <li class="${pageContext.request.requestURI eq '/RecycleMapApp/index.jsp' ? 'active' : '' }"><a href="/RecycleMapApp/index.jsp">Inicio</a></li>
         <li class="${pageContext.request.requestURI eq '/RecycleMapApp/views/user/map.jsp' ? 'active' : '' }"><a href="/RecycleMapApp/views/user/map.jsp">Mapa</a></li>
-        <li><a href="#">Contactanos</a></li>
+        <li class="${pageContext.request.requestURI eq '/RecycleMapApp/views/static_pages/contact.jsp' ? 'active' : '' }"><a href="/RecycleMapApp/views/static_pages/contact.jsp">Contactanos</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mi Cuenta</a></li>

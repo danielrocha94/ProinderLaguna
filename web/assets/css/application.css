@@ -3,6 +3,10 @@
   background-color: #454f4f;
 }
 
+body {
+  padding: 0px;
+}
+
 nav.navbar {
     margin: 0px;
 }

@@ -1,28 +1,35 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Sign Up Form</title>
+  <title>Formulario de contacto</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 
   <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
   <link rel="stylesheet" href="/RecycleMapApp/assets/css/style.css">
   <link rel="stylesheet" href="/RecycleMapApp/assets/css/button.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
   
 </head>
 
-<body>
-
-<div class="container">
-<img src="/PRO-INDER/img/logo.png" height="90" width="120" style="float: right"> 
+<body style="background-color: #f2f2f2;padding: 0px;">
+<jsp:include page="/views/shared/header.jsp"/>
+<div class="container" style="padding-top: 50px;">
+<img src="/RecycleMapApp/assets/images/logo.png" height="90" width="120" style="float: right"> 
   <form action="recollector" method="post">
        <input type="hidden" name="action" value="addRecollector">
-       <h4>Registro de cuenta</h4>
+       <h4>Registro de Recolector</h4>
        <label>&nbsp;</label>
-    <div class="row">
+    <div class="row" style="padding-left: 15px;">
         <label>&nbsp;</label><label>&nbsp;</label>
       <div class="input-group input-group-icon">
         <input type="text" placeholder="ID" name="id" required/>

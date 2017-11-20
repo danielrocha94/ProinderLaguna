@@ -12,6 +12,20 @@
       <ul class="nav navbar-nav">
         <li class="${pageContext.request.requestURI eq '/RecycleMapApp/index.jsp' ? 'active' : '' }"><a href="/RecycleMapApp/index.jsp">Inicio</a></li>
         <li class="${pageContext.request.requestURI eq '/RecycleMapApp/views/user/map.jsp' ? 'active' : '' }"><a href="/RecycleMapApp/views/user/map.jsp">Mapa</a></li>
+        <li class="${pageContext.request.requestURI eq '/RecycleMapApp/views/user/registerRecollector' ? 'active' : '' } dropdown-toggle">
+          <a href="/RecycleMapApp/views/user/registerRecollector.jsp" data-toggle="dropdown">Recolector <i class="fa fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="/RecycleMapApp/views/user/registerRecollector.jsp">Agregar recolector</a></li>
+                <li><a href="#">Mostrar todos</a></li>
+            </ul>
+        </li>
+        <li class="${pageContext.request.requestURI eq '/RecycleMapApp/views/user/registerUser' ? 'active' : '' } dropdown-toggle">
+            <a href="#" data-toggle="dropdown">Usuario <i class="fa fa-caret-down"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="/RecycleMapApp/views/user/registerUser.jsp">Agregar usuario</a></li>
+                <li><a href="#">Mostrar todos</a></li>
+              </ul>
+        </li>
         <li class="${pageContext.request.requestURI eq '/RecycleMapApp/views/static_pages/contact.jsp' ? 'active' : '' }"><a href="/RecycleMapApp/views/static_pages/contact.jsp">Contactanos</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

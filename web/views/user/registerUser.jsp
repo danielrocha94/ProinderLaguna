@@ -23,10 +23,11 @@
 <body style="background-color: #f2f2f2;padding: 0px;">
 <jsp:include page="/views/shared/header.jsp"/>
 <div class="container" style="padding-top: 50px;">
+
 <img src="/RecycleMapApp/assets/images/logo.png" height="90" width="120" style="float: right"> 
   <form action="/RecycleMapApp/user" method="post">
        <input type="hidden" name="action" value="addUser">
-       <h4>Registro de cuenta</h4>
+       <h4>Registro de usuario</h4>
        <label>&nbsp;</label>
     <div class="row" style="padding-left: 15px;">
         <label>&nbsp;</label><label>&nbsp;</label>
@@ -52,7 +53,7 @@
   </form>
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script  src="/RecycleMapApp/assets/javascripts/index.js"></script>
+  <script  src="/RecycleMapApp/assets/javascripts/index.js"></script>
 
 </body>
 </html>
