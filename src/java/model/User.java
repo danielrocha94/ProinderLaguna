@@ -74,4 +74,12 @@ public class User {
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
+    
+    public Boolean hasPassword(String password) {
+        if (this.password.trim().equals(password)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

@@ -47,9 +47,10 @@ public class UserServlet extends HttpServlet {
 
             String email = request.getParameter("email");
             ConnectionDB connectionDB = new ConnectionDB();
-                Connection connection = connectionDB.getConnectionDB();
-
-                UserDAO userDAO = new UserDAO(connection);
+            Connection connection = connectionDB.getConnectionDB();
+            
+            UserDAO userDAO = new UserDAO(connection);
+                
             String password = request.getParameter("password");
             if (email.toUpperCase().equals("ADMINISTRADOR@PROINDER.COM") && password.equals("hola")) {
                 request.setAttribute("users", userDAO.getUserList());

@@ -15,8 +15,8 @@
         <li class="${pageContext.request.requestURI eq '/RecycleMapApp/views/static_pages/contact.jsp' ? 'active' : '' }"><a href="/RecycleMapApp/views/static_pages/contact.jsp">Contactanos</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mi Cuenta</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Cerrar Sesiòn</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> ${fullName}</a></li>
+        <li><a href="/RecycleMapApp/logout"><span class="glyphicon glyphicon-log-out"></span> Cerrar Sesiòn</a></li>
       </ul>
     </div>
   </div>

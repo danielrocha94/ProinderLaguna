@@ -93,5 +93,28 @@ public class UserDAO {
         return userList;
     }
     
+        
+    public User getUserByEmail(String email) {
+        User user = new User();
+        try {
+            statement = connection.prepareStatement("SELECT * FROM public.user_account WHERE email = ?");
+            synchronized (statement) {
+                statement.setString(1, email);
+                ResultSet result = statement.executeQuery();
+                if (result.next()) {
+                  user.setEmail(result.getString("email"));
+                  user.setPassword(result.getString("password"));
+                  user.setFullName(result.getString("full_name"));
+                  user.setTelephone(result.getString("telephone"));
+                }
+            }
+            statement.close();
+        } catch ( SQLException sqle) {
+            logger.log(Level.SEVERE, sqle.toString(), sqle);
+            throw new RuntimeException(sqle);
+        }
+        return user;
+    }
+    
 
 }

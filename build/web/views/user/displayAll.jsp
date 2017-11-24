@@ -8,10 +8,10 @@
             <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
             <link rel="stylesheet" href="css/style.css">
             <link rel="stylesheet" href="css/button.css">
-          <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+            <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
             <script type="text/javascript" charset="utf8" src="/js/jquery.dataTables.js"></script></head>
- <script  src="js/index.js"></script>
-             <script  src="js/usersDataTable.js"></script>
+            <script  src="js/index.js"></script>
+            <script  src="js/usersDataTable.js"></script>
         <body>
             <div class="container">
                 <img src="/PRO-INDER/img/logo.png" height="90" width="120" style="float: right"> 

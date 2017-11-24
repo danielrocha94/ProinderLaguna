@@ -23,8 +23,8 @@
 <jsp:include page="/views/shared/header.jsp"/>
 <div class="container" style="padding-top: 50px;">
 <img src="/RecycleMapApp/assets/images/logo.png" height="90" width="120" style="float: right"> 
-  <form action="/RecycleMapApp/user" method="post">
-       <input type="hidden" name="action" value="verifyUser">
+  <form action="/RecycleMapApp/login" method="post">
+       <input type="hidden" name="action" value="getUserByEmail">
        <h4>Inicio de Sesion</h4>
        <label>&nbsp;</label>
     <div class="row" style="padding-left: 15px;">
