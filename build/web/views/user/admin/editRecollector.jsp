@@ -11,8 +11,9 @@
             <div class="modal-body">
                 <div class="container" style="padding: 15px;">
                     <form action="recollector" method="get">
+                        <input type="hidden" name="action" value="editRecollectorData">
                         <div class="input-group input-group-icon">
-                            <input type="text" placeholder="ID" name="id" id="editRecolelctorId" required/>
+                            <input type="text" placeholder="ID" name="id" id="editRecollectorId" required/>
                             <div class="input-icon"><i class="fa fa-user"></i></div>
                         </div>
                         <div class="input-group input-group-icon">
@@ -25,11 +26,11 @@
                         </div>
                         <div class="input-group input-group-icon">
                             <input type="text" placeholder="Latitude" name="latitude" id="editRecolelctorLatitude" required/>
-                            <div class="input-icon"><i class="fa fa-user"></i></div>
+                            <div class="input-icon"><i class="fa fa-map-marker"></i></div>
                         </div>
                         <div class="input-group input-group-icon">
                             <input type="text" placeholder="Longitude" name="longitude" id="editRecolelctorLongitude" required/>
-                            <div class="input-icon"><i class="fa fa-user"></i></div>
+                            <div class="input-icon"><i class="fa fa-map-marker"></i></div>
                         </div>
                         
                         <button type="submit" class="btn btn-success" style="float: left;margin-left: 20px;">Guardar</button>

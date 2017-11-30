@@ -87,11 +87,13 @@ public class RecollectorDAO {
         Recollector recollector = new Recollector();
         try {
             statement = connection.prepareStatement("SELECT * FROM public.recollector WHERE id = ?");
+            statement.setInt(1, Integer.parseInt(id));
+
             synchronized (statement) {
-                statement.setInt(1, Integer.parseInt(id));
-                ResultSet result = statement.executeQuery();
+                ResultSet result;
+                result = statement.executeQuery();
                 if (result.next()) {
-                  recollector.setFullName(result.getString("email"));
+                  recollector.setId(result.getInt("id"));
                   recollector.setFullName(result.getString("full_name"));
                   recollector.setTelephone(result.getString("telephone"));
                   recollector.setLatitude(result.getDouble("latitude"));

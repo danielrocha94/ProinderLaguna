@@ -33,7 +33,6 @@
 <input type="hidden" name="action" value="updateRecollector">
 <script>
   function selectRecollector(id) {
-    console.log(id)
     $.ajax({
       url: "/RecycleMapApp/recollector",
       data: {
@@ -43,6 +42,11 @@
       type: "GET",
       success: (data) => {
           console.log("selected: ", data);
+          $("#editRecollectorId").val(data.id);
+          $("#editRecolelctorFullName").val(data.fullName.trim());
+          $("#editRecolelctorTel").val(data.telephone.trim());
+          $("#editRecolelctorLatitude").val(data.latitude);
+          $("#editRecolelctorLongitude").val(data.longitude);
       },
       error: (error) => {
           console.log("error: ", error);
