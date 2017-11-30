@@ -25,21 +25,35 @@ public class RecollectorServlet extends HttpServlet {
             throws ServletException, IOException {
         String url = "/recollector";
         
-        Integer id = Integer.parseInt(request.getParameter("id"));
-        String fullName = request.getParameter("fullName");
-        String telephone = request.getParameter("telephone");
-        Double latitude = Double.parseDouble(request.getParameter("latitude"));
-        Double longitude = Double.parseDouble(request.getParameter("longitude"));
-        // store data in Recollector object and save Recollector object in database
-        Recollector recollector = new Recollector(id, fullName, telephone, latitude, longitude);
-        ConnectionDB connectionDB = new ConnectionDB();
-        Connection connection = connectionDB.getConnectionDB();
-        
-        RecollectorDAO recollectorDAO = new RecollectorDAO(connection);
-        recollectorDAO.addRecollector(recollector);
-        
-        response.sendRedirect("http://localhost:8080/RecycleMapApp/recollector");
-        
+        String action = request.getParameter("action");
+
+        if (action == null) {
+            Integer id = Integer.parseInt(request.getParameter("id"));
+            String fullName = request.getParameter("fullName");
+            String telephone = request.getParameter("telephone");
+            Double latitude = Double.parseDouble(request.getParameter("latitude"));
+            Double longitude = Double.parseDouble(request.getParameter("longitude"));
+            // store data in Recollector object and save Recollector object in database
+            Recollector recollector = new Recollector(id, fullName, telephone, latitude, longitude);
+            ConnectionDB connectionDB = new ConnectionDB();
+            Connection connection = connectionDB.getConnectionDB();
+            
+            RecollectorDAO recollectorDAO = new RecollectorDAO(connection);
+            recollectorDAO.addRecollector(recollector);
+            
+            response.sendRedirect("http://localhost:8080/RecycleMapApp/recollector");
+        } else if (action.equals("deleteRecollectorData")) {
+            Integer id = Integer.parseInt(request.getParameter("id"));
+            ConnectionDB connectionDB = new ConnectionDB();
+            Connection connection = connectionDB.getConnectionDB();
+            RecollectorDAO recollectorDAO = new RecollectorDAO(connection);
+            recollectorDAO.deleteRecollector(id);
+            String json = new Gson().toJson("OK!");
+            
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(json);
+        }
         //request.setAttribute("recollector", recollector);
         
         //request.getRequestDispatcher(url)
@@ -88,23 +102,14 @@ public class RecollectorServlet extends HttpServlet {
           RecollectorDAO recollectorDAO = new RecollectorDAO(connection);
           recollectorDAO.editRecollector(recollector);
 
-response.sendRedirect("http://localhost:8080/RecycleMapApp/recollector");
+          response.sendRedirect("http://localhost:8080/RecycleMapApp/recollector");
         }
     }
     
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {        
-        Integer id = Integer.parseInt(request.getParameter("id"));
-        ConnectionDB connectionDB = new ConnectionDB();
-        Connection connection = connectionDB.getConnectionDB();
-        RecollectorDAO recollectorDAO = new RecollectorDAO(connection);
-        recollectorDAO.deleteRecollector(id);
-        String json = new Gson().toJson("OK!");
-        
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(json);
+
     }
 
     

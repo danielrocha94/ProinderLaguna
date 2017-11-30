@@ -15,7 +15,7 @@
         <c:forEach var="recollector" items="${recollectorList}" >
             
         <div class="row">
-            <tr>
+            <tr id="recollector-${recollector.id}">
                 <td class="recollectorsTableId">${recollector.id}</td>
                 <td>${recollector.fullName}</td>
                 <td>${recollector.telephone}</td>
@@ -61,13 +61,12 @@
           "action": "deleteRecollectorData",
           "id": id
       },
-      type: "DELETE",
+      type: "POST",
       success: (data) => {
-          console.log("deleted: ", data);
-          //console.log($.("recollectorDelete-"+id));
+          $("#recollector-"+id).hide();
       },
       error: (error) => {
-         console.log("error: ", error);
+//         console.log("error: ", error);
       }
     });
   }

@@ -83,7 +83,7 @@ public class RecollectorDAO {
         ArrayList<Recollector> recollectorList = new ArrayList<Recollector>();
        
         try {
-            statement = connection.prepareStatement("select * from public.recollector");
+            statement = connection.prepareStatement("select * from public.recollector ORDER BY id");
             synchronized (statement) {
                 ResultSet results = statement.executeQuery();
                 while (results.next()) {
