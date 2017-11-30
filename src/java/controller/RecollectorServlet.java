@@ -71,7 +71,25 @@ public class RecollectorServlet extends HttpServlet {
           response.setContentType("application/json");
           response.setCharacterEncoding("UTF-8");
           response.getWriter().write(json);
-        } else if (action.equals("editRecollector"))
+        } else if (action.equals("editRecollectorData")) {
+
+          String url = "/recollector";
+        
+          Integer id = Integer.parseInt(request.getParameter("id"));
+          String fullName = request.getParameter("fullName");
+          String telephone = request.getParameter("telephone");
+          Double latitude = Double.parseDouble(request.getParameter("latitude"));
+          Double longitude = Double.parseDouble(request.getParameter("longitude"));
+
+          Recollector recollector = new Recollector(id, fullName, telephone, latitude, longitude);            
+            
+          ConnectionDB connectionDB = new ConnectionDB();
+          Connection connection = connectionDB.getConnectionDB();
+          RecollectorDAO recollectorDAO = new RecollectorDAO(connection);
+          recollectorDAO.editRecollector(recollector);
+
+response.sendRedirect("http://localhost:8080/RecycleMapApp/recollector");
+        }
     }
     
     @Override

@@ -43,6 +43,27 @@ public class RecollectorDAO {
         }
     }
 
+    public void editRecollector(Recollector recollector) {
+        try {
+            statement = connection.prepareStatement("UPDATE public.recollector SET id = ? , full_name = ? , latitude = ? , longitude = ? , telephone = ? WHERE id = ?");
+            synchronized (statement) {
+                statement.setInt(1, recollector.getId());
+                statement.setString(2, recollector.getFullName());
+                statement.setDouble(3, recollector.getLatitude());
+                statement.setDouble(4, recollector.getLongitude());
+                statement.setString(5, recollector.getTelephone());
+                statement.setInt(6, recollector.getId());
+
+
+                statement.executeUpdate();
+            }
+            statement.close();
+        } catch (SQLException sqle) {
+            logger.log(Level.SEVERE, sqle.toString(), sqle);
+            throw new RuntimeException(sqle);
+        }
+    }    
+    
     public void deleteRecollector(Integer id) {
         try {
             statement = connection.prepareStatement("DELETE FROM public.recollector WHERE id = ?");
