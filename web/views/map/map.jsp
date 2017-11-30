@@ -1,5 +1,5 @@
 <div class="map__content">
-    <div id="googleMap" style="width:100%;height: calc(100%);"></div>
+    <div id="googleMap" style="width:100%;height: 100%;"></div>
 </div>
 <script>
   function myMap() {
@@ -15,10 +15,10 @@
     getRecollectorsData(map);
     
     var user_icon = '/RecycleMapApp/assets/images/user_map_marker.png'
-    //placeMarker(userCenter,
-    //            map,
-    //            "Usuario1",
-    //            user_icon);
+    placeMarker(userCenter,
+                map,
+                "Usuario1",
+                user_icon);
     
   }
   
@@ -64,6 +64,24 @@
                 var recollector_icon = '/RecycleMapApp/assets/images/collector_map_marker.png';
                 placeMarker(coordinates, map, user, recollector_icon);
             });
+        },
+        error: (error) => {
+            console.log("error: ", error)
+        }
+      })
+  }
+  
+  function getUserData(map) {
+      $.ajax({
+        url: "/RecycleMapApp/map",
+        data: {
+            "action": "getUserData"
+        },
+        type: "GET",
+        success: (user) => {
+            var coordinates = new google.maps.LatLng(user.latitude,user.longitude);
+            var user_icon = '/RecycleMapApp/assets/images/user_map_marker.png'
+            placeMarker(coordinates, map, user, user_icon);
         },
         error: (error) => {
             console.log("error: ", error)

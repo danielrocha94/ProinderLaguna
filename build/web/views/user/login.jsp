@@ -40,7 +40,7 @@
       <div class="input-group input-group-icon">
      
         <label>&nbsp;</label><label>&nbsp;</label>
-        <button type="submit" class="btn btn-success" >Iniciar Sesion</button> <a href="./registerUser.jsp" style="color:green"> ¿No tienes usuario? Registrate </a>
+        <button type="submit" class="btn btn-success" >Iniciar Sesion</button> <a href="./registerUser.jsp" style="color:green"><br><br> ¿No tienes usuario? Registrate </a>
   </form>
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

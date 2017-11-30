@@ -12,7 +12,7 @@ nav.navbar {
 }
 
 .map__content {
-  height: 100vh;
+  height: calc(100vh - 50px);
 }
 
 .info_window {

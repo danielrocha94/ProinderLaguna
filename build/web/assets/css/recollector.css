@@ -1,0 +1,33 @@
+.recollectorsContainer {
+    width: 90%;
+    margin: auto;
+    background-color: white;
+    padding: 15px !important;
+}
+
+#recollectorsTable {
+    border: 1px solid #eee;
+    min-width: 572px;
+}
+#recollectorsTable thead tr {
+    background-color: #E4E4E4;
+}
+
+#recollectorsTable thead tr th{
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.recollectorsTableBody tr td{
+    padding: 5px;
+}
+
+.recollectorsTableId {
+    background-color: #f5f5f5;
+}
+
+.recollectorsTableActions a {
+    color: red;
+    display: inline-block;
+    padding-right: 10px;
+}

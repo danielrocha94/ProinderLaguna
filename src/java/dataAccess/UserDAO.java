@@ -5,6 +5,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 import java.util.logging.Level;
+import model.Recollector;
 import model.User;
 
 public class UserDAO {
@@ -92,7 +93,7 @@ public class UserDAO {
         }
         return userList;
     }
-    
+
         
     public User getUserByEmail(String email) {
         User user = new User();
@@ -106,6 +107,9 @@ public class UserDAO {
                   user.setPassword(result.getString("password"));
                   user.setFullName(result.getString("full_name"));
                   user.setTelephone(result.getString("telephone"));
+                  user.setLatitude(result.getDouble("latitude"));
+                  user.setLongitude(result.getDouble("longitude"));
+                  user.setIsAdmin(result.getBoolean("is_admin"));
                 }
             }
             statement.close();

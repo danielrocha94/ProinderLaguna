@@ -27,12 +27,13 @@ public class RecollectorDAO {
     public void addRecollector(Recollector recollector) {
         try {
             statement = connection.prepareStatement("INSERT INTO public.recollector VALUES(?,?,?,?,?)");
-            synchronized (statement) {;
-                statement.setString(1, recollector.getId());
+            synchronized (statement) {
+                statement.setInt(1, recollector.getId());
                 statement.setString(2, recollector.getFullName());
-                statement.setString(3, recollector.getTelephone());
-                statement.setDouble(4, recollector.getLatitude());
-                statement.setDouble(5, recollector.getLongitude());
+                statement.setDouble(3, recollector.getLatitude());
+                statement.setDouble(4, recollector.getLongitude());
+                statement.setString(5, recollector.getTelephone());
+
                 statement.executeUpdate();
             }
             statement.close();
@@ -41,6 +42,21 @@ public class RecollectorDAO {
             throw new RuntimeException(sqle);
         }
     }
+
+    public void deleteRecollector(Integer id) {
+        try {
+            statement = connection.prepareStatement("DELETE FROM public.recollector WHERE id = ?");
+            synchronized (statement) {
+                statement.setInt(1, id);
+                statement.executeUpdate();
+            }
+            statement.close();
+        } catch (SQLException sqle) {
+            logger.log(Level.SEVERE, sqle.toString(), sqle);
+            throw new RuntimeException(sqle);
+        }
+    }
+    
     
     public ArrayList<Recollector> getRecollectorList() {
         ArrayList<Recollector> recollectorList = new ArrayList<Recollector>();
@@ -51,7 +67,7 @@ public class RecollectorDAO {
                 ResultSet results = statement.executeQuery();
                 while (results.next()) {
                     Recollector recollector = new Recollector();
-                    recollector.setId(results.getString("id"));
+                    recollector.setId(results.getInt("id"));
                     recollector.setFullName(results.getString("full_name"));
                     recollector.setTelephone(results.getString("telephone"));
                     recollector.setLatitude(results.getDouble("latitude"));
@@ -67,28 +83,26 @@ public class RecollectorDAO {
         return recollectorList;
     }
     
-    public ArrayList<Recollector> getRecollectorData() {
-        ArrayList<Recollector> recollectorList = new ArrayList<Recollector>();
-             
+    public Recollector getRecollectorById(String id) {
+        Recollector recollector = new Recollector();
         try {
-            statement = connection.prepareStatement("select * from public.recollector");
+            statement = connection.prepareStatement("SELECT * FROM public.recollector WHERE id = ?");
             synchronized (statement) {
-                ResultSet results = statement.executeQuery();
-                while (results.next()) {
-                    Recollector recollector = new Recollector();
-                    recollector.setFullName(results.getString("full_name"));
-                    recollector.setTelephone(results.getString("telephone"));
-                    recollector.setLatitude(results.getDouble("latitude"));
-                    recollector.setLongitude(results.getDouble("longitude"));
-                    recollectorList.add(recollector);
+                statement.setInt(1, Integer.parseInt(id));
+                ResultSet result = statement.executeQuery();
+                if (result.next()) {
+                  recollector.setFullName(result.getString("email"));
+                  recollector.setFullName(result.getString("full_name"));
+                  recollector.setTelephone(result.getString("telephone"));
+                  recollector.setLatitude(result.getDouble("latitude"));
+                  recollector.setLongitude(result.getDouble("longitude"));
                 }
-                
             }
             statement.close();
-        } catch (SQLException sqle) {
+        } catch ( SQLException sqle) {
             logger.log(Level.SEVERE, sqle.toString(), sqle);
             throw new RuntimeException(sqle);
         }
-        return recollectorList;
+        return recollector;
     }
 }

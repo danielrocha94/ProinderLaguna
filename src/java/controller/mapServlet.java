@@ -14,6 +14,8 @@ import model.Recollector;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import dataAccess.UserDAO;
+import model.User;
  
 
 @WebServlet(urlPatterns = {"/map"})
@@ -32,7 +34,7 @@ public class mapServlet extends HttpServlet {
             ConnectionDB connectionDB = new ConnectionDB();
             Connection connection = connectionDB.getConnectionDB();
             RecollectorDAO recollectorDAO = new RecollectorDAO(connection);
-            ArrayList<Recollector> recollectors = recollectorDAO.getRecollectorData();
+            ArrayList<Recollector> recollectors = recollectorDAO.getRecollectorList();
             
             String json = new Gson().toJson(recollectors);
             response.setContentType("application/json");
@@ -40,7 +42,15 @@ public class mapServlet extends HttpServlet {
             response.getWriter().write(json);
 
         } else if (action.equals("getUserData")) {
+            ConnectionDB connectionDB = new ConnectionDB();
+            Connection connection = connectionDB.getConnectionDB();
+            UserDAO userDAO = new UserDAO(connection);
+            //User user = userDAO.getUserByEmail();
             
+           // String json = new Gson().toJson(user);
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            //response.getWriter().write(json);
         }
     }
 

@@ -10,7 +10,7 @@ package model;
  * @author Anet
  */
 public class Recollector {
-    private String id;
+    private Integer id;
     private String fullName;
     private String telephone;
     private Double latitude;
@@ -19,7 +19,7 @@ public class Recollector {
     public Recollector() {
     }
 
-    public Recollector(String id, String fullName, String telephone, Double latitude, Double longitude) {
+    public Recollector(Integer id, String fullName, String telephone, Double latitude, Double longitude) {
         this.id = id;
         this.fullName = fullName;
         this.telephone = telephone;
@@ -27,11 +27,11 @@ public class Recollector {
         this.longitude = longitude;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

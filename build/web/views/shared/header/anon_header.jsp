@@ -12,7 +12,6 @@
     <div class="collapse navbar-collapse" id="mapNavbar">
       <ul class="nav navbar-nav">
         <li class="${pageContext.request.requestURI eq '/RecycleMapApp/index.jsp' ? 'active' : '' }"><a href="/RecycleMapApp/index.jsp">Inicio</a></li>
-        <li class="${pageContext.request.requestURI eq '/RecycleMapApp/views/user/map.jsp' ? 'active' : '' }"><a href="/RecycleMapApp/views/user/map.jsp">Mapa</a></li>
         <li class="${pageContext.request.requestURI eq '/RecycleMapApp/views/static_pages/contact.jsp' ? 'active' : '' }"><a href="/RecycleMapApp/views/static_pages/contact.jsp">Contactanos</a></li>
         <li class="${pageContext.request.requestURI eq '/RecycleMapApp/views/static_pages/about_us.jsp' ? 'active' : '' }"><a href="/RecycleMapApp/views/static_pages/about_us.jsp">Sobre Nosotros</a></li>
       </ul>

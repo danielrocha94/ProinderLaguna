@@ -16,5 +16,7 @@
     </head>
     <body class="map__body">
         <jsp:include page="/views/shared/header.jsp"/>
+        <jsp:include page="/views/shared/footer.jsp"/>
+
     </body>
 </html>

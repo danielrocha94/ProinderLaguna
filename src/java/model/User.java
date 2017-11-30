@@ -16,6 +16,7 @@ public class User {
     private String telephone;
     private Double longitude;
     private Double altitude;
+    private Boolean isAdmin;
 
     public User() {
     }
@@ -59,11 +60,11 @@ public class User {
         this.telephone = telephone;
     }
     
-    public Double getAltitude() {
+    public Double getLatitude() {
         return altitude;
     }
 
-    public void setAltitude(Double altitude) {
+    public void setLatitude(Double altitude) {
         this.altitude = altitude;
     }
     
@@ -73,6 +74,14 @@ public class User {
 
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
+    }
+    
+    public Boolean getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(Boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
     
     public Boolean hasPassword(String password) {

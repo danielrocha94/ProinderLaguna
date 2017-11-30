@@ -19,5 +19,6 @@
         <header class="home__header">
             <image src="/RecycleMapApp/assets/images/proinder_header.png"/>
         </header>
+        <jsp:include page="/views/shared/footer.jsp"/>
     </body>
 </html>

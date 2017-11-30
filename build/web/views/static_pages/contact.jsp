@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html style="padding: 0px;">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Reciclaje inclusivo</title>
@@ -33,5 +33,6 @@
               <input type="submit" value="Enviar" id="input-submit">
             </form>
         </div>
+        <jsp:include page="/views/shared/footer.jsp"/>
     </body>
 </html>

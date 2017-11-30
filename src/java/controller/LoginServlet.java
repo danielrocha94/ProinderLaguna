@@ -20,7 +20,6 @@ public class LoginServlet extends HttpServlet {
                     throws ServletException, IOException { 
         
         String action = request.getParameter("action");
-        PrintWriter out =response.getWriter();  
         
         if (action.equals("getUserByEmail")) {
             response.setContentType("text/html");  
@@ -35,16 +34,14 @@ public class LoginServlet extends HttpServlet {
             User user = userDAO.getUserByEmail(email);
 
             if(user.hasPassword(password)){
-                out.print("Welcome, "+ user.getFullName());  
                 HttpSession session=request.getSession();  
                 session.setAttribute("email", user.getEmail());  
-                session.setAttribute("fullName", user.getFullName()); 
-                request.getRequestDispatcher("/views/user/profile.jsp").include(request, response);  
+                session.setAttribute("fullName", user.getFullName());
+                session.setAttribute("isAdmin", new Boolean (user.getIsAdmin()));
+                request.getRequestDispatcher("/views/user/map.jsp").include(request, response);  
             }else{
-                out.print("Sorry, username or password error!");  
                 request.getRequestDispatcher("/views/user/login.jsp").include(request, response);  
             }
-        out.close();
         }
     }
 }
